@@ -1,0 +1,18 @@
+#303658 , Madison , R = 48 , G = 54 , B = 88 , Note = no note
+#2C434B , Nile Blue , R = 44 , G = 67 , B = 75 , Note = no note
+#AA484F , Apple Blossom , R = 170 , G = 72 , B = 79 , Note = no note
+#413647 , Martinique , R = 65 , G = 54 , B = 71 , Note = no note
+#2A4359 , Catalina Blue , R = 42 , G = 67 , B = 89 , Note = no note
+#316C58 , Eden , R = 49 , G = 108 , B = 88 , Note = no note
+#29C770 , Medium Sea Green , R = 41 , G = 199 , B = 112 , Note = no note
+#33375C , Gulf Blue , R = 51 , G = 55 , B = 92 , Note = no note
+#04C7DE , Dark Turquoise , R = 4 , G = 199 , B = 222 , Note = no note
+#F99F21 , Lightning Yellow , R = 249 , G = 159 , B = 33 , Note = no note
+#F7BE4A , Cream Can , R = 247 , G = 190 , B = 74 , Note = no note
+#7465F0 , Medium Slate Blue , R = 116 , G = 101 , B = 240 , Note = no note
+#292F45 , Valhalla , R = 41 , G = 47 , B = 69 , Note = no note
+#151D30 , Black Pearl , R = 21 , G = 29 , B = 48 , Note = no note
+#4A12F2 , Han Purple , R = 74 , G = 18 , B = 242 , Note = no note
+#2DAB73 , Medium Sea Green , R = 45 , G = 171 , B = 115 , Note = no note
+#EEC100 , Golden Poppy , R = 238 , G = 193 , B = 0 , Note = no note
+#E61B60 , Ruby , R = 230 , G = 27 , B = 96 , Note = no note

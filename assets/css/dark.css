@@ -1,0 +1,35 @@
+:root{
+  /*======dark them=======*/
+  --dark-theme-dark-bg-color: hsl(224, 38, 13);
+  --dark-theme-lighter-bg-color: hsl(227, 25, 22);
+  --dark-theme-dark-purple: hsl(234, 29, 28);
+  --dark-theme-light-purple: hsl(245, 59, 61);
+  --dark-theme-orange: hsl(29, 70, 57);
+  --dark-theme-yellow: hsl(41, 99, 67);
+  --dark-theme-white-text: hsl(0, 0, 95);
+  --dark-theme-grey-text: hsl(226, 7, 52);
+  --dark-theme-dark-green: hsl(169, 38, 31);
+  --dark-theme-bg-color: hsl(224, 38, 13);
+  --dark-theme-green: hsl(147, 66, 47);
+  --dark-theme-maroon: hsl(279, 14, 25);
+  --dark-theme-dark-red: hsl(359, 67, 59);
+  
+  /*======light theme===========*/
+  --light-theme-bg-color: hsl(220, 27, 98);
+  --light-theme-white: hsl(0, 0, 100);
+  --light-theme-pink: hsl(345, 83, 91);
+  --light-theme-dark-red: hsl(4, 95, 36);
+  --light-theme-blue: hsl(227, 78, 58);
+  --light-theme-dark-text: hsl(244, 10, 28);
+  --light-theme-black: hsl(205, 11, 22);
+  --light-theme-sky-blue: hsl(205, 89, 67);
+  --light-theme-dark-purple: hsl(251, 31, 27);
+  --light-theme-red: hsl(8, 98, 48);
+  --light-theme-white-blue: hsl(203, 81, 92);
+  --light-theme-light-yellow: hsl(37, 90, 92);
+  --light-theme-yellow: hsl(40, 92, 63);
+  --light-theme-green: hsl(147, 66, 47);
+  --light-theme-dark-blue-voilet: hsl(251, 32, 27);
+  
+  
+}

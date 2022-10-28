@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time tables</title>
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/light.css">
+    <link rel="stylesheet" href="assets/css/media.css">
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
+    <!-- <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script> -->
+    <!-- <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script> -->
+    <!-- <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script> -->
+    
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="light-mode">
+
+  <input type="checkbox" id="sideMenuToggle" >
+  <!-- <label for="sideMenuToggle" class="toggleBtn">&times;</label> -->
+  <input type="checkbox" name="SettingsBottomActive" id="SettingsBottomActive">
+    <!-- <<label for="white" class="primaryColorLabel"></label>-->
+    <input type="checkbox" id="rightSidebarActivate">
+       <!--  <label for="rightSidebarActivate">rightSidebarActivate</label>-->
+
+       <!-- sidebar================== -->
+       <input type="checkbox" id="checkbox">
+
+    <header class="navbar">
+      <div class="left">
+      <a  class="logo"> <span class="logoIcon"><i class='bx bxl-xing'></i></span><span class="logotext">TimeTable</span></a>
+      <form action="#" class="searchForm">
+        <input type="search" name="search" id="searchInput" autocomplete="off" placeholder="Search dashboard..">
+        <button type="submit" class="searchBtn"><i class='bx bx-search'></i></button>
+      </form>
+    </div>
+    <div class="right">
+      <div class="profile">
+        <span class="profilePhoto"><img src="assets/images/5.jpg" alt="" srcset=""></span>
+        <div class="profileMenu">
+          <a href="#" class="profileItem"><i class='bx bx-user profile-icon'></i>My Profile</a>
+          <a href="#" class="profileItem"><i class='bx bxs-edit profile-icon'></i>Edit Profile</a>
+          <a href="#" class="profileItem"><i class='bx bx-cog profile-icon' ></i>Settings</a>
+          <a href="#" class="profileItem"><i class='bx bx-help-circle profile-icon'></i>Help</a>
+          <a href="#" class="profileItem"><i class='bx bx-power-off profile-icon'></i>Logout</a>
+        </div>
+      </div>
+    </div>
+               <!--  <label for="sideMenuToggle" class="toggleBtn">&times;</label>-->
+      <!--  <<label for="sideMenuToggle" class="ToggleSidebar toggleBtn"><i class='bx bx-menu'></i></label>-->
+    </header>
+
+
+  <div id="mainWrapper">
+    <div class="container">
+      <!-- Left side menu begins -->
+      <div class="left sideMenu sidebar">
+        <!-- <label for="sideMenuToggle" class="toggleBtn"><i class='bx bx-chevron-left toggleSidebarIcon'></i></label>-->
+
+     
+
+         
+    
+        <div class="logo_content">
+
+            <div class="logo">
+                <!-- <div class="logo_image"><i class='bx bxl-markdown' ></i></div> -->
+                <div class="logo_image"><i class='bx bxl-xing'></i></div>
+                <div class="logo_name">Timetable </div>
+            </div>
+            <!-- <label for="checkbox" class="toggleSidebar"><i class='bx bx-menu' id="btn"></i></label> -->
+            <label for="sideMenuToggle" class="toggleBtn"><i class='bx bx-chevron-left toggleSidebarIcon'></i></label>
+            <label for="checkbox" class="toggleSidebar"></label>
+            
+        </div>
+
+        <ul class="nav_list">
+            <li>
+              <a id="roomsActivate" class="navLink">
+                  <i class='bx bx-grid-alt sidemenuIcon' ></i>
+                <span class="linkItem">Rooms</span>
+                </a>
+                <!-- <span class="linkItem">Dashboard</span> -->
+            </li>
+
+
+            <li>
+              <a id="LecturersActivate" class="navLink">
+                <i class='bx bx-home-alt sidemenuIcon'></i>
+                <span class="linkItem">Add lecturer</span>
+                </a>
+                <!-- <span class="linkItem">Dashboard</span> -->
+            </li>
+
+            <li>
+              <a id="courseUnitsActivate" class="navLink">
+                <i class='bx bx-book-alt sidemenuIcon'></i>
+                <span class="linkItem">Course units</span>
+                </a>
+                <!-- <span class="linkItem">Dashboard</span> -->
+            </li>
+
+            <li>
+              <a id="programsActivate" class="navLink">
+                <i class='bx bx-bookmark sidemenuIcon'></i>
+                <span class="linkItem">Programs</span>
+                </a>
+                <!-- <span class="linkItem">Dashboard</span> -->
+            </li>
+
+            <li>
+              <a id="departmentsActivate" class="navLink">
+                <i class='bx bx-buildings sidemenuIcon'></i>
+                <span class="linkItem">Departments</span>
+                </a>
+                <!-- <span class="linkItem">Dashboard</span> -->
+            </li>
+
+            <li>
+              <a id="spacesActivate" class="navLink">
+                <i class='bx bx-home-alt sidemenuIcon'></i>
+                <span class="linkItem">Spaces</span>
+                </a>
+                <!-- <span class="linkItem">Dashboard</span> -->
+            </li>
+
+            <li>
+              <a id="lecturesActivate" class="navLink">
+                <i class='bx bx-bookmark sidemenuIcon'></i>
+                <span class="linkItem">Lectures</span>
+                </a>
+                <!-- <span class="linkItem">Dashboard</span> -->
+            </li>
+
+            <li>
+              <a id="userRegisterActivate" class="navLink">
+                <i class='bx bx-group sidemenuIcon'></i>
+                <span class="linkItem">Register user</span>
+                </a>
+                <!-- <span class="linkItem">Dashboard</span> -->
+            </li>
+
+            <li>
+              <div class="switch">
+                <input type="checkbox" id="mode" checked onclick="changeStatus()">
+                <label for="mode">
+                  <span></span>
+                  <span class="sideMenuToggableLink">Dark</span>
+                </label>
+              </div>
+                <!-- <span class="linkItem">Dashboard</span> -->
+            </li>
+        </ul>
+
+        <div class="userBottomprofile">
+            <div class="profile">
+                <div class="profile_content">
+                    <img src="assets/images/15.jpg" alt="" srcset="">
+                    <div class="name_designation">
+                        <div class="name">Rein Anderson</div>
+                        <div class="designation">Web Designer</div>
+                    </div>
+                </div>
+                <i class='bx bx-power-off' id="logout"></i>
+            </div>
+        </div>
+   
+      </div>
+      <!-- Left side menu end -->
+
+      <!-- middle begins -->
+      <div class="middle">
+        <div class="middleContentOverflow">
+        <section class="mainContent">
+          <!-- <div class="container"> -->
+            <div class="cardTop">
+              <span class="dashboard"><i class='bx bxs-grid-alt dashboardIcon'></i><span class="dashboardHeader">Dashboard</span></span>
+            </div>
+
+            <div class="summaryCards">
+              <div class="kard">
+                  <div class="kardLeft"><i class='bx bxs-book-open kardIcon'></i>
+                  <span class="heading">Courses</span>
+                  </div>
+                  <div class="kardRight">
+                  <div class="Content">25</div>
+                  </div>
+              </div>
+      
+              <div class="kard">
+                  <div class="kardLeft"><i class='bx bx-group kardIcon'></i>
+                  <span class="heading">Staff</span>
+                  </div>
+                  <div class="kardRight">
+              
+                  <div class="Content">25</div>
+                  </div>
+              </div>
+      
+              <div class="kard">
+                  <div class="kardLeft">
+                    <i class='bx bx-buildings kardIcon'></i>
+                  <span class="heading">Faculty</span>
+                  </div>
+                  <div class="kardRight">
+                      
+                  <div class="Content">25</div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="users-container table">
+
+          <table id="example" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Registration ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Department</th>
+                    <th>Password</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> 
+                    <p><img src="assets/images/5.jpg"/></p>
+                    </td>
+                    <td>Tiger Nixon</td>
+                    <td>System Architect</td>
+                    <td>Edinburgh</td>
+                    <td>61</td>
+                    <td>2011/04/25</td>
+                </tr>
+                <tr>
+                    <td> 
+                    <p><img src="assets/images/2.jpeg"/></p>
+                    </td>
+                    <td>Garrett Winters</td>
+                    <td>Accountant</td>
+                    <td>Tokyo</td>
+                    <td>63</td>
+                    <td>2011/07/25</td>
+                </tr>
+                <tr>
+                    <td> 
+                    <p><img src="assets/images/14.jpg"/></p>
+                    </td>
+                    <td>Ashton Cox</td>
+                    <td>Junior Technical Author</td>
+                    <td>San Francisco</td>
+                    <td>66</td>
+                    <td>2009/01/12</td>
+                </tr>
+                <tr>
+                    <td> 
+                    <p><img src="assets/images/18.jpg"/></p>
+                    </td>
+                    <td>Cedric Kelly</td>
+                    <td>Senior Javascript Developer</td>
+                    <td>Edinburgh</td>
+                    <td>22</td>
+                    <td>2012/03/29</td>
+                </tr>
+                <tr>
+                    <td> 
+                    <p><img src="assets/images/9.jpg"/></p>
+                    </td>
+                    <td>Airi Satou</td>
+                    <td>Accountant</td>
+                    <td>Tokyo</td>
+                    <td>33</td>
+                    <td>2008/11/28</td>
+                </tr>
+                <tr>
+                    <td> 
+                    <p><img src="assets/images/11.jpg"/></p>
+                    </td>
+                    <td>Brielle Williamson</td>
+                    <td>Integration Specialist</td>
+                    <td>New York</td>
+                    <td>61</td>
+                    <td>2012/12/02</td>
+                </tr>
+                <tr>
+                    <td class=""> 
+                    <p><img src="assets/images/8.jpg"/></p>
+                    </td>
+                    <td>Herrod Chandler</td>
+                    <td>Sales Assistant</td>
+                    <td>San Francisco</td>
+                    <td>59</td>
+                    <td>2012/08/06</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                  <th>Photo</th>
+                  <th>Registration ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Department</th>
+                  <th>Password</th>
+                </tr>
+            </tfoot>
+        </table>
+
+        <script>
+          $(document).ready(function() {
+              $('#example').DataTable( {
+                  dom: 'Bfrtip',
+                  buttons: [
+                      'copy', 'csv', 'excel', 'pdf', 'print'
+                  ]
+              } );
+              } );
+        </script>
+            </div>
+
+                 <!-- Modals---------->
+
+       <!-- Rooms Modals---------->
+       <div class="modalsContainer">
+        <div class="modalBg closeModalBg" id="roomsModal">
+          <div class="modalContent" >
+            <span id="close" class="closeRoomsModal">&times;</span>
+            <form class="roomsForm" action="#" method="#" accept-charset="utf-8">
+              <span class="heading">Add Rooms</span>
+              
+              <div class="formFields">
+                <input type="text" name="roomNo" id="roomNo" class="inputField" required>
+                <div class="underliner"></div>
+                <label for="roomNo" class="animateLabel">Rooms Room Number</label>
+              </div>
+  
+              <div class="formFields">
+                  <input type="text" name="lectureCapacity" id="lectureCapacity" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="lectureCapacity" class="animateLabel">Lecture Capacity</label>
+                </div>
+  
+                <div class="formFields">
+                  <input type="text" name="examCapacity" id="examCapacity" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="examCapacity" class="animateLabel">Exam Capacity</label>
+                </div>
+  
+                <div class="formFields">
+                  <input type="text" name="isOccupied" id="isOccupied" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="isOccupied" class="animateLabel">Is Occupied</label>
+                </div>
+  
+                <div class="formFields">
+                  <input type="text" name="lectureId" id="lectureId" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="lectureId" class="animateLabel">Lecture ID</label>
+                </div>
+              
+              <div class="formFields">
+                <button id="btn">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+  
+  
+   <!--Add Lecturer---------->
+        <div class="modalBg" id="lecturerModal">
+          <div class="modalContent" id="lecturer">
+            <span id="close" class="closeLecturerModal">&times;</span>
+            <form action="#" method="#" accept-charset="utf-8">
+              <span class="heading">Add Lecturer</span>
+  
+              <div class="formFields">
+                <input type="text" name="lecturerNo" class="inputField" required>
+                <div class="underliner"></div>
+                <label for="lectureNo" class="animateLabel">Lecturer No</label>
+              </div>
+              
+               <div class="formFields">
+                
+                <input type="text" name="lecturerName" class="inputField" required>
+                <div class="underliner"></div>
+                <label for="name" class="animateLabel">Name</label>
+              </div>
+              
+               <div class="formFields">
+                
+                <input type="tel" name="contact" class="inputField" required>
+                <div class="underliner"></div>
+                <label for="Contact" class="animateLabel">Contact</label>
+              </div>
+              
+               <div class="formFields">
+                
+                <select name="fullTime" class="inputField" required>
+                  <option value=""></option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+                <div class="underliner"></div>
+                <label for="lectureNo" class="animateLabel">Full time</label>
+                </div>
+                
+                 <div class="formFields">
+                
+                <select name="fullTime" class="inputField" required>
+                  <option value=""></option>
+                  <option value="Sunday">Subday</option>
+                  <option value="Monday">Monday</option>
+                  <option value="Tuesday">Tuesday</option>
+                  <option value="Wednesday">Wednesday</option>
+                  <option value="Thursday">Thursday</option>
+                  <option value="Friday">Friday</option>
+                  <option value="Saturday">Saturday</option>
+                </select>
+                <div class="underliner"></div>
+                <label for="lectureNo" class="animateLabel">Days</label>
+                </div>
+                
+                 <div class="formFields">
+                <select name="fullTime" class="inputField" required>
+                  <option value=""></option>
+                  <option disabled >Select Course Unit</option>
+                  <option value="OOP Java">OOP Java</option>
+                  <option value="Business Intelligence">Business Intelligence</option>
+                  <option value="Automata">Automata</option>
+                </select>
+                <div class="underliner"></div>
+                <label for="lectureNo" class="animateLabel">Course Units</label>
+                </div>
+              
+              <div class="inputField">
+                <button id="btn" type="submit">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+  
+  <!-- Course Units Modal---------->
+        <div class="modalBg" id="courseUnitsModal">
+          <div class="modalContent" id="courseUnits">
+            <span id="close" class="closeCourseUnitsModal">&times;</span>
+            <form class="roomsForm" action="#" method="#" accept-charset="utf-8">
+              <span class="heading">Add Course Units</span>
+              <div class="formFields">
+                <input type="text" name="courseUnitCode" id="courseUnitCode" class="inputField" required>
+                <div class="underliner"></div>
+                <label for="courseUnitCode" class="animateLabel">Course Unit Code</label>
+              </div>
+    
+              <div class="formFields">
+                  <input type="text" name="courseUnitName" id="courseUnitName" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="courseUnitName" class="animateLabel">Course Unit Name</label>
+                </div>
+    
+                <div class="formFields">
+                  <input type="text" name="cutsAccross" id="cutsAccross" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="cutsAccross" class="animateLabel">Cuts Accross</label>
+                </div>
+    
+                <div class="formFields">
+                  <input type="text" name="isAssignedLecturer" id="isAssignedLecturer" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="isAssignedLecturer" class="animateLabel">Is Assigned Lecturer</label>
+                </div>
+    
+                <div class="formFields">
+                  <input type="text" name="lecturerNo" id="lectureId" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="lecturerNo" class="animateLabel">Lecturer No</label>
+                </div>
+              
+              <div class="formFields">
+                <button id="btn">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+  
+       <!-- Add Lectures Modal---------->
+        <div class="modalBg" id="lecturesModal">
+          <div class="modalContent" id="lectures">
+            <span id="close" class="closeLecturesModal">&times;</span>
+            <form class="lecturesForm" action="#" method="#" accept-charset="utf-8">
+              <span class="heading">Add Lectures</span>
+             
+              <div class="formFields">
+                  <input type="text" name="lecturerNo" id="lecturerNo" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="lecturerNo" class="animateLabel">Lecturer No</label>
+                </div>
+    
+                <div class="formFields">
+                  <input type="text" name="courseUnitCode" id="courseUnitCode" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="courseUnitCode" class="animateLabel">Course Unit Code</label>
+                </div>
+    
+                <div class="formFields">
+                  <input type="text" name="roomNo" id="roomNo" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="roomNo" class="animateLabel">Room No</label>
+                </div>
+  
+                <div class="formFields">
+                  <input type="text" name="ProgramCode" id="ProgramCode" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="ProgramCode" class="animateLabel">Program Code</label>
+                </div>
+    
+              <div class="formFields">
+                <button id="btn">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+  <!-- Add Programs Modal---------->
+        <div class="modalBg" id="programsModal">
+          <div class="modalContent" id="programs">
+            <span id="close" class="closeProgramsModal">&times;</span>
+            <form class="roomsForm" action="#" method="#" accept-charset="utf-8">
+              <span class="heading">Add Programs</span>
+              <div class="formFields">
+                <input type="text" name="ProgramCode" id="ProgramCode" class="inputField" required>
+                <div class="underliner"></div>
+                <label for="ProgramCode" class="animateLabel">Program Code</label>
+              </div>
+    
+              <div class="formFields">
+                  <input type="text" name="IsRegular" id="IsRegular" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="IsRegular" class="animateLabel">Is Regular</label>
+                </div>
+    
+                <div class="formFields">
+                  <input type="text" name="capacity" id="capacity" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="capacity" class="animateLabel">Capacity</label>
+                </div>
+    
+                <div class="formFields">
+                  <input type="text" name="courseUnits" id="courseUnits" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="courseUnits" class="animateLabel">Course Units</label>
+                </div>
+    
+              <div class="formFields">
+                <button id="btn">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+  <!-- Departments modal---------->
+        <div class="modalBg" id="departmentsModal">
+          <div class="modalContent" id="departments">
+            <span id="close" class="closeDepartmentsModal">&times;</span>
+            <form class="roomsForm" action="#" method="#" accept-charset="utf-8">
+              <span class="heading">Add departments</span>
+              <div class="formFields">
+                <input type="text" name="departmentCode" id="departmentCode" class="inputField" required>
+                <div class="underliner"></div>
+                <label for="departmentCode" class="animateLabel">Department Code</label>
+              </div>
+    
+              <div class="formFields">
+                  <input type="text" name="headOfDepartment" id="headOfDepartment" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="headOfDepartment" class="animateLabel">Head Of Department</label>
+                </div>
+    
+                <div class="formFields">
+                  <input type="text" name="departmentPrograms" id="departmentPrograms" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="departmentPrograms" class="animateLabel">Department Programs</label>
+                </div>
+    
+                <div class="formFields">
+                  <input type="text" name="departmentRooms" id="departmentRooms" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="departmentRooms" class="animateLabel">Department Rooms</label>
+                </div>
+    
+              <div class="formFields">
+                <button id="btn">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+        <!-- Spaces modal---------->
+  
+        <div class="modalBg" id="spacesModal">
+          <div class="modalContent" id="space">
+            <span id="close" class="closeSpaceModal">&times;</span>
+            <form class="roomsForm" action="#" method="#" accept-charset="utf-8">
+              <span class="heading">Add Space</span>
+              <div class="formFields">
+                <input type="text" name="day" id="day" class="inputField" required>
+                <div class="underliner"></div>
+                <label for="day" class="animateLabel">Day</label>
+              </div>
+    
+              <div class="formFields">
+                  <input type="time" name="duration" id="duration" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="duration" class="animateLabel">Duration</label>
+                </div>
+    
+              <div class="formFields">
+                <button id="btn">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+         <!-- Lectures modal---------->
+         <div class="modalBg" id="lecturesModal">
+          <div class="modalContent" id="lectures">
+            <span id="close" class="closeLecturesModal">&times;</span>
+            <form class="lecturesForm" action="#" method="#" accept-charset="utf-8">
+              <span class="heading">Add Lectures</span>
+              
+              <div class="formFields">
+                <input type="text" name="lectureNo" class="inputField" required>
+                <div class="underliner"></div>
+                <label for="day" class="animateLabel">Lecture Number</label>
+              </div>
+    
+              <div class="formFields">
+                  <input type="text" name="courseUnitCode" class="inputField" required>
+                  <div class="underliner"></div>
+                  <label for="duration" class="animateLabel">Course Unit Code</label>
+              </div>
+  
+              <div class="formFields">
+                <input type="text" name="roomNo" class="inputField" required>
+                <div class="underliner"></div>
+                <label for="roomNo" class="animateLabel">Room Number</label>
+              </div>
+  
+              <div class="formFields">
+                <input type="text" name="ProgramCode" class="inputField" required>
+                <div class="underliner"></div>
+                <label for="ProgramCode" class="animateLabel">Program Code</label>
+              </div>
+    
+              <div class="formFields">
+                <button id="btn">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+           <!-- User Register modal---------->
+           <div class="modalBg" id="userRegisterModal">
+            <div class="modalContent" id="lectures">
+              <span id="close" class="closeuserRegisterModal">&times;</span>
+              <form action="#" class="RegisterForm">
+                <span class="heading">Register</span>
+
+                <div class="formFields">
+                    <input type="text" name="RegNo" id="Regno" class="inputField" required>
+                    <div class="underliner"></div>
+                    <label for="username" class="animateLabel">Registration ID</label>
+                  </div>
+               
+                <div class="formFields">
+                    <input type="text" name="firstname" id="firstname" class="inputField" required>
+                    <div class="underliner"></div>
+                    <label for="username" class="animateLabel">First Name</label>
+                  </div>
+
+                  <div class="formFields">
+                    <input type="text" name="lastname" id="lastname" class="inputField" required>
+                    <div class="underliner"></div>
+                    <label for="lastname" class="animateLabel">Last name</label>
+                  </div>
+
+                  <div class="formFields">
+                    <input type="text" name="department" id="department" class="inputField" required>
+                    <div class="underliner"></div>
+                    <label for="department" class="animateLabel">Department</label>
+                  </div>
+
+                  <div class="formFields">
+                    <input type="password" name="password" id="password" class="inputField" required>
+                    <div class="underliner"></div>
+                    <label for="password" class="animateLabel">Password</label>
+                  </div>
+
+                  <div class="formFields">
+                    <input type="password" name="confirmPass" id="confirmPass" class="inputField" required>
+                    <div class="underliner"></div>
+                    <label for="confirmPass" class="animateLabel">Confirm Password</label>
+                  </div>
+
+                  <div class="formFields">
+                    <button id="btn" name="staff" id="firstname">Submit</button>
+                    </div>
+                    
+                   <!-- <span class="link">Already have an account?<a href="../index.html" class="showForm"><label for="loginCheckbox">Login here</label></a></span> -->
+            </form>
+            </div>
+          </div>
+        
+       
+  
+      </div>
+        <!-- Modals end---------->
+          <!-- </div> -->
+
+       
+
+          <div class="SettingsBottom">
+            <div class="settingsHeader">
+              
+             <label for="SettingsBottomActive"><div class="settingsIcon"><i class='bx bx-cog'></i><span class="header">Settings</span></div></label>
+              
+              <div class="settingsheaderDots">
+                <i class='bx bx-dots-horizontal-rounded' ></i>
+              </div>
+            </div>
+    
+            <div class="settingsContent">
+              <div class="card">
+                <div class="primaryColor">
+                  <span class="ColorHeader">Background</span>
+                  <div class="colors">
+                   
+                      <input type="radio" name="primaryColor" value="white" id="white" class="radioPrimaryColor" checked>
+                    <label for="white" class="primaryColorLabel"></label>
+                   
+                      <input type="radio" name="primaryColor" value="hotPink" id="hotPink" class="radioPrimaryColor">
+                    <label for="hotPink" class="primaryColorLabel"></label>
+                    
+                      <input type="radio" name="primaryColor" value="purple" id="purple" class="radioPrimaryColor">
+                    <label for="purple" class="primaryColorLabel"></label>
+               
+                      <input type="radio" name="primaryColor" value="cyan" id="cyan" class="radioPrimaryColor">
+                    <label for="cyan" class="primaryColorLabel"></label>
+                    
+                  </div>
+                </div>
+    
+                <div class="secondaryColor">
+                  <span class="ColorHeader">Text Color</span>
+                  <div class="colors">
+                   
+                      <input type="radio" name="secondaryColor" value="green" id="green" class="radioSecondaryColor" checked>
+                    <label for="green" class="secondaryColorLabel"></label>
+                   
+                      <input type="radio" name="secondaryColor" value="yellow" id="yellow" class="radioSecondaryColor">
+                    <label for="yellow" class="secondaryColorLabel"></label>
+                    
+                      <input type="radio" name="secondaryColor" value="darkPurple" id="darkPurple" class="radioSecondaryColor">
+                    <label for="darkPurple" class="secondaryColorLabel"></label>
+               
+                      <input type="radio" name="secondaryColor" value="secondaryPurple" id="secondaryPurple" class="radioSecondaryColor">
+                    <label for="secondaryPurple" class="secondaryColorLabel"></label>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="card ">
+                <div class="setSidebars">
+                  <h4>Fixed Left Sidebar</h4>
+                  <div class="fixLeftSidebar">
+                    <input type="checkbox" id="setLeftSideBar">
+                    <label for="setLeftSideBar" class="setLeftSideBar"></label>
+                  </div>
+    
+                </div>
+                <div class="setSidebars">
+                  <h4>Fixed Right Sidebar</h4>
+                  <div class="fixRightSidebar">
+                    <input type="checkbox" id="setRightSideBar">
+                    <label for="setRightSideBar" class="setRightSideBar"></label>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="card"></div> -->
+              <!-- <div class="card"></div> -->
+            </div>
+           
+          </div>
+
+          <div class="mobileMenu">
+            <label for="sideMenuToggle" >
+            <a class="nav-item">
+              <!-- <i class='bx bx-stats'></i><span>Activity</span> -->
+              <i class='bx bx-chevron-right'></i><span>Sidebar</span>
+            </a>
+            </label>
+            <a class="nav-item" href="#">
+              <i class='bx bxs-home'></i><span>Home</span>
+            </a>
+
+            
+            <a class="nav-item" href="#">
+              <i class='bx bx-message-square-dots'></i><span>Messages</span>
+            </a>
+            
+            <label for="rightSidebarActivate">
+            <a class="nav-item">
+              <i class='bx bx-chevron-left'></i><span>Profile</span>
+            </a>
+            </label>
+          </div><!-- mobileMenu end -->
+
+          <div class="eventsCard">
+
+            <h1>Hello</h1>
+            <div class="eventsContainer">
+              <div class="card">hey</div>
+              <div class="card">You</div>
+              <div class="card">Whars up</div>
+            </div>
+          </div>
+        </section>
+        </div>
+
+     
+      </div>
+      <!-- middle end -->
+
+      <!-- right side menu begins -->
+      <div class="right rightSideMenu rightSidebarActive">
+        <div class="rightContainer">
+        <div class="rightProfile">
+         <label for="rightSidebarActivate">
+          <h4 class="heading">Profile</h4>
+          </label>
+          <div class="profilePhotoRight">
+            <img src="assets/images/4.jpg" alt="" srcset="">
+            <div class="overlay">
+              span
+            </div>
+          </div>
+          <div class="profileText">
+            <span class="profileName">Bwoye Charles</span>
+            <span class="userTitle">Head of Department</span>
+          </div>
+        </div>
+        
+          <div class="contacts">
+            <h2 class="contactsHeading">Contacts</h2>
+          <div class="contactsContainer">
+            <div class="contactctSingle">
+            <div class="contactsContainerLeft">
+              <div class="Contactphoto">
+                <img src="assets/images/5.jpg" alt="" srcset="">
+              </div>
+            </div>
+            <div class="contactsContainerRight">
+              <div class="conatctName"><p class="name">Muwanika Robert</p></div>
+              <div class="dateTime">
+                <span class="day">Today</span>
+                <span class="timeSpan">12mins ago</span>
+              </div>
+            </div>
+            </div><!-- contactctSingle ends -->
+            
+             <div class="contactctSingle">
+            <div class="contactsContainerLeft">
+              <div class="Contactphoto">
+                <img src="assets/images/6.jpg" alt="" srcset="">
+              </div>
+            </div>
+            <div class="contactsContainerRight">
+              <div class="conatctName"><p class="name">Muwanika Robert</p></div>
+              <div class="dateTime">
+                <span class="day">Today</span>
+                <span class="timeSpan">12mins ago</span>
+              </div>
+            </div>
+            </div><!-- contactctSingle ends -->
+            
+             <div class="contactctSingle">
+            <div class="contactsContainerLeft">
+              <div class="Contactphoto">
+                <img src="assets/images/7.jpg" alt="" srcset="">
+              </div>
+            </div>
+            <div class="contactsContainerRight">
+              <div class="conatctName"><p class="name">Muwanika Robert</p></div>
+              <div class="dateTime">
+                <span class="day">Today</span>
+                <span class="timeSpan">12mins ago</span>
+              </div>
+            </div>
+            </div><!-- contactctSingle ends -->
+            
+             <div class="contactctSingle">
+            <div class="contactsContainerLeft">
+              <div class="Contactphoto">
+                <img src="assets/images/3.jpeg" alt="" srcset="">
+              </div>
+            </div>
+            <div class="contactsContainerRight">
+              <div class="conatctName"><p class="name">Muwanika Robert</p></div>
+              <div class="dateTime">
+                <span class="day">Today</span>
+                <span class="timeSpan">12mins ago</span>
+              </div>
+            </div>
+            </div><!-- contactctSingle ends -->
+            
+             <div class="contactctSingle">
+            <div class="contactsContainerLeft">
+              <div class="Contactphoto">
+                <img src="assets/images/15.jpg" alt="" srcset="">
+              </div>
+            </div>
+            <div class="contactsContainerRight">
+              <div class="conatctName"><p class="name">Muwanika Robert</p></div>
+              <div class="dateTime">
+                <span class="day">Today</span>
+                <span class="timeSpan">12mins ago</span>
+              </div>
+            </div>
+            </div><!-- contactctSingle ends -->
+            
+             <div class="contactctSingle">
+            <div class="contactsContainerLeft">
+              <div class="Contactphoto">
+                <img src="assets/images/16.jpg" alt="" srcset="">
+              </div>
+            </div>
+            <div class="contactsContainerRight">
+              <div class="conatctName"><p class="name">Muwanika Robert</p></div>
+              <div class="dateTime">
+                <span class="day">Today</span>
+                <span class="timeSpan">12mins ago</span>
+              </div>
+            </div>
+            </div><!-- contactctSingle ends -->
+            
+             <div class="contactctSingle">
+            <div class="contactsContainerLeft">
+              <div class="Contactphoto">
+                <img src="assets/images/11.jpg" alt="" srcset="">
+              </div>
+            </div>
+            <div class="contactsContainerRight">
+              <div class="conatctName"><p class="name">Muwanika Robert</p></div>
+              <div class="dateTime">
+                <span class="day">Today</span>
+                <span class="timeSpan">12mins ago</span>
+              </div>
+            </div>
+            </div><!-- contactctSingle ends -->
+            </div>
+          </div><!-- contacts ends -->
+        
+        </div><!-- rightContainer ends -->
+      </div><!-- rightSideNenu ends -->
+      </div>
+      </div>
+      <!-- right side menu ends -->
+    </div>
+  </div>
+  
+
+      <script src="assets/js/main.js"></script>
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script> -->
+</body>
+</html>

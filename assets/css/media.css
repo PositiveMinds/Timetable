@@ -1,0 +1,253 @@
+@media screen and (min-width: 768px) {
+  .modalBg .modalContent{
+      width: 50rem;
+      height: auto;
+      display: flex;
+      padding: 2rem 2rem;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+  .modalBg .modalContent{
+      width: 80%;
+      height: auto;
+      display: flex;
+      padding: 2rem 2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+  
+  header{
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  header .searchForm{
+    width: 67vw;
+    margin: 0 .5rem;
+  }
+  
+  header .logotext{
+    display: none;
+  }
+  
+  
+  #mainWrapper .container{
+    display: grid;
+    grid-template-columns: 100%;
+    width: 100%;
+    margin: 0 0 8rem 0;
+  }
+
+
+
+  #mainWrapper .container .sideMenu{
+   position: fixed;
+   left: -58%;
+   top: 0;
+   transition: var(--transition);
+   z-index: 90000;
+   box-shadow: 0 0 5px 0 rgba(0,0,0,.215);
+  }
+
+  #checkbox:checked ~ #mainWrapper .sidebar{
+    width: 240px;
+  }
+
+ #mainWrapper .sidebar .linkItem{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .userBottomprofile .profile .profile_content{
+    opacity: 1;
+    visibility: visible;
+  }
+  
+   #mainWrapper .container .right{
+    position: fixed;
+   right: -100%;
+   width: 100%;
+    height: 100%;
+    background: var(--light-theme-bg-color);
+    top: 0;
+    z-index: 9999;
+    transition: 500ms;
+  } 
+  
+  #rightSidebarActivate:checked ~ #mainWrapper .container .right{
+    right: 0;
+  }
+
+.mainContent .cardTop{
+  width: 100%;
+}
+
+.modalBg{
+  transform: translateY(100%);
+  bottom: 0;
+  height: 100%;
+  overflow-y: hidden;
+  transform: translateY(100%);
+  transition: all 300ms;
+}
+
+.modalActive{
+  transform: translateY(0);
+}
+
+
+
+.modalBg .modalContent .formFields{
+height: 40px;
+margin-top: 2rem;
+}
+
+.modalBg .modalContent{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 2rem .7rem;
+}
+
+
+.modalBg .modalContent .formFields .inputField:focus~label,
+.modalBg .modalContent .formFields .inputField:valid~label{
+transform: translateY(-30px);
+-webkit-transform: translateY(-30px);
+-moz-transform: translateY(-30px);
+-ms-transform: translateY(-30px);
+-o-transform: translateY(-30px);
+}
+
+.modalBg .modalContent .formFields label{
+bottom: 5px;
+}
+
+.modalContent #btn{
+  width: 100%;
+  background: var(--light-theme-active-Link);
+  font-size: 1.2em;
+  padding: 10px;
+  margin: 1rem 0;
+  
+}
+
+.SettingsBottom{
+  /* display: flex; */
+  right: 10px;
+  bottom: 5rem;
+}
+
+#sideMenuToggle:checked~.sideMenu-Overlay{
+
+  opacity: 1;
+  visibility: visible;
+}
+
+#mainWrapper .left .toggleBtn{
+  display: block;
+  width: 30px;
+  aspect-ratio: 1/1;
+  font-size: 2.5em;
+  background: transparent;
+  position: absolute;
+  top: 1rem;
+  right: -1.6rem;
+  transition: var(--transition);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+#mainWrapper .toggleSidebar{
+  display: none;
+}
+
+#mainWrapper .toggleSidebarIcon{
+  transform: rotate(180deg);
+  transition: var(--transition);
+}
+
+#sideMenuToggle:checked~#mainWrapper .toggleSidebarIcon{
+  transform: rotate(0deg);
+  background: var(--light-theme-white);
+}
+
+#SettingsBottomActive:checked ~ #mainWrapper .SettingsBottom{
+  bottom: 0;
+  right: 0;
+  border-radius: 0;
+  z-index: 9999;
+} 
+
+#sideMenuToggle:checked ~ #mainWrapper .container .left{
+  left: 0;
+  top: 0;
+  width: 300px;
+  position: fixed;
+  z-index: 2000;
+}
+
+#SettingsBottomActive:checked ~ #mainWrapper .settingsContent{
+height: 85vh;
+width: 100vw;
+
+}
+
+.staff-table{
+    padding: 0;
+  }
+  
+  .mobileMenu{
+  display: flex;
+  justify-content: space-around;
+  /*background-color: #333;*/
+  background: var(--light-theme-white);
+  box-shadow: 0 0 6px 0 rgba(0,0,0,.215);
+  padding: 12px;
+  position: fixed;
+  z-index: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Datatables */
+
+.dataTables_filter{
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  padding: .2rem;
+  /* background: green; */
+  width: 100%;
+  float: right;
+  margin: -3rem 1rem 1rem 1rem;
+}
+
+.dataTables_filter input{
+  border: 1px solid #ddd;
+  padding: .5rem .5rem;
+  width: 200px;
+}
+
+.dt-buttons button{
+  margin: .2rem
+}
+
+.dt-buttons{
+  display: flex;
+  margin-bottom: 4rem;
+  
+}
+
+} 
+
+
+  
+  
